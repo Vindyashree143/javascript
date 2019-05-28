@@ -4,17 +4,36 @@
 	<title></title>
 </head>
 <body>
-<h1 id="demo" onmouseover="mouseOver()" onmouseout="mouseOut()">Mouse over me</h1>
-<h1 id="demo" onmouseover="mouseOver()" onmouseout="mouseOut()">hello world</h1>
-
-
-<script>
-function mouseOver() {
-  document.getElementById("demo").style.color = "red";
+    <p id="task1" onclick="myFunction1()">Red</p>
+	<p id="task2" onclick="myFunction2()">green</p>
+	<p id="task3" onclick="myFunction3()">yellow</p>
+ <script type="text/javascript">
+function myFunction1() {
+	
+	if(document.getElementById("task1").style.background == "red"){
+	(document.getElementById("task1").style.background ="white");
+	}
+	else{
+		(document.getElementById("task1").style.background ="red");
+	}
 }
-
-function mouseOut() {
-  document.getElementById("demo").style.color = "black";
+	function myFunction2() {
+	
+	if(document.getElementById("task2").style.background == "green"){
+	(document.getElementById("task2").style.background ="white");
+	}
+	else{
+		(document.getElementById("task2").style.background ="green");
+	}
+}
+function myFunction3() {
+	
+	if(document.getElementById("task3").style.background == "yellow"){
+	(document.getElementById("task3").style.background ="white");
+	}
+	else{
+		(document.getElementById("task3").style.background ="yellow");
+	}
 }
 </script>
 </body>
