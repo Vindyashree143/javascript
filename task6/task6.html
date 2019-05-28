@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<form name=form1 method=post action=check.php>
+
+<table class='table table-striped' >
+  
+<tr><th >Get the total</th></tr>
+<tr>
+	<td>
+		<input type=checkbox name=ckb value=5 onclick='chkcontrol(0)';> 5 </td>
+<td>
+	<input type=checkbox name=ckb value=10 onclick='chkcontrol(1)';> 10  </td>
+<td>
+	<input type=checkbox name=ckb value=15 onclick='chkcontrol(2)';> 15  </td>
+</tr>
+<tr>
+	<td >
+		<input type=checkbox name=ckb value=20 onclick='chkcontrol(3)';>  20  </td>
+<td >
+	<input type=checkbox name=ckb value=30 onclick='chkcontrol(4)';>  25  </td>
+	<td >
+	<input type=checkbox name=ckb value=30 onclick='chkcontrol(4)';>  30  </td>
+</tr>
+
+</table></form>
+
+<br><br>
+<div id=msg></div>
+<script type="text/javascript"> 
+function chkcontrol(j) {
+var sum=0;
+for(var i=0; i < document.form1.ckb.length; i++){
+
+if(document.form1.ckb[i].checked){
+sum = sum + parseInt(document.form1.ckb[i].value);
+}
+document.getElementById("msg").innerHTML="Sum :"+ sum;
+
+if(sum >100){
+sum = sum - parseInt(document.form1.ckb[j].value);
+document.form1.ckb[j].checked = false ;
+alert("Sum of the selection can't be more than 10") 
+//return false;
+}
+document.getElementById("msg").innerHTML="Sum :"+ sum;
+}
+}
+</script>
+<!-- <p>
+		<input type="button" onclick='selectAll()' value="Select All"/>
+		<input type="button" onclick='UnSelectAll()' value="Unselect All"/>
+	</p> -->
+</body>
+</html>
