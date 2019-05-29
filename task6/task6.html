@@ -2,58 +2,76 @@
 <html>
 <head>
 	<title></title>
+	<link rel="stylesheet" type="text/css" href="./task06/task.css">
 </head>
 <body>
 
-<form name=form1 method=post action=check.php>
+<form id="myform" name=form1 method=post action=check.php>
 
 <table class='table table-striped' >
   
-<tr><th >Get the total</th></tr>
+<tr><th>Get the total</th></tr>
 <tr>
 	<td>
-		<input type=checkbox name=ckb value=5 onclick='chkcontrol(0)';> 5 </td>
+	<input type=checkbox name=ckb value=5 > 5 </td>
 <td>
-	<input type=checkbox name=ckb value=10 onclick='chkcontrol(1)';> 10  </td>
+	
+	<input type=checkbox name=ckb value=10> 10  </td>
 <td>
-	<input type=checkbox name=ckb value=15 onclick='chkcontrol(2)';> 15  </td>
+	
+	<input type=checkbox name=ckb value=15> 15  </td>
 </tr>
+
 <tr>
-	<td >
-		<input type=checkbox name=ckb value=20 onclick='chkcontrol(3)';>  20  </td>
+	<td>
+	<input type=checkbox name=ckb value=20>  20  </td>
 <td >
-	<input type=checkbox name=ckb value=30 onclick='chkcontrol(4)';>  25  </td>
-	<td >
-	<input type=checkbox name=ckb value=30 onclick='chkcontrol(4)';>  30  </td>
+	<input type=checkbox name=ckb value=25>  25  </td>
+	<td>
+	<input type=checkbox name=ckb value=30>  30  </td>
 </tr>
 
-</table></form>
-
-<br><br>
+</table>
+</form>
+<br>
 <div id=msg></div>
-<script type="text/javascript"> 
-function chkcontrol(j) {
-var sum=0;
-for(var i=0; i < document.form1.ckb.length; i++){
+<div id="c1">
+	<input type="button" id="checkall" onclick="selectAll()" value="SelectAll">
+	<input type="button" id="checkall" onclick="UnSelectAll() "value="UnselectAll">
+</div>
+	<div id="c2">
+		<input type="button" id="chck" onclick="checked1()" value="Submit">
+	</div>
 
-if(document.form1.ckb[i].checked){
-sum = sum + parseInt(document.form1.ckb[i].value);
-}
-document.getElementById("msg").innerHTML="Sum :"+ sum;
 
-if(sum >100){
-sum = sum - parseInt(document.form1.ckb[j].value);
-document.form1.ckb[j].checked = false ;
-alert("Sum of the selection can't be more than 10") 
-//return false;
-}
-document.getElementById("msg").innerHTML="Sum :"+ sum;
-}
-}
+<script type="text/javascript">
+	function checked1() {
+
+        var items = document.getElementsByName('ckb');
+        var sum=0;
+        for (var i = 0; i < items.length; i++) {
+            if (items[i].type == 'checkbox' && items[i].checked == true)
+            	sum+=parseInt(items[i].value);
+                
+        }
+    document.write(sum);
+    }
+    function selectAll() {
+        var items = document.getElementsByName('ckb');
+        for (var i = 0; i < items.length; i++) {
+            if (items[i].type == 'checkbox')
+                items[i].checked = true;
+        }
+    }
+
+    function UnSelectAll() {
+        var items = document.getElementsByName('ckb');
+        for (var i = 0; i < items.length; i++) {
+            if (items[i].type == 'checkbox')
+                items[i].checked = false;
+        }
+    }			
+
 </script>
-<!-- <p>
-		<input type="button" onclick='selectAll()' value="Select All"/>
-		<input type="button" onclick='UnSelectAll()' value="Unselect All"/>
-	</p> -->
 </body>
 </html>
